@@ -34,7 +34,18 @@ header {
 
 h1, h2, h3 {
 	margin: 0px;
-	font-family: 'Baloo 2', cursive;
+	font-family: 'Inter Tight', sans-serif;
+}
+
+/* FONT FOR LINKS */
+a {
+	margin: 0px;
+	font-family: 'Inter Tight', sans-serif;
+}
+
+body {
+	margin: 0px;
+	font-family: 'Inter Tight', sans-serif;
 }
 
 
@@ -72,6 +83,18 @@ h1, h2, h3 {
 	border:  2px solid rgba(0, 0, 0, .2);
 }
 
+.swatch {
+  border: 2px solid blue;
+  box-shadow: 1px 3px 120px #CBED47;
+  border-radius: 20px;
+  
+}
+
+.swatch .link  {
+  
+}
+
 
 .swatch .title {
 	text-align: center;
+  
