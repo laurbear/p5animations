@@ -1,11 +1,17 @@
 html,body {
 	/* set a default font for the whole page */
-	font-family: 'Nunito', sans-serif; 
+/* 	font-family: 'Nunito', sans-serif; 
 	background-color: grey;
 	padding: 0px;
 	margin: 0px;
 	width: 100%;
-	height: 100%;
+	height: 100%; */
+  @font-face {
+  font-family: Inter Tight, sans-serif;
+  #font-weight: bold;
+  src: url("https://fonts.googleapis.com/css2?family=Inter+Tight&display=swap")
+    format("opentype");
+}
 	
 }
 
