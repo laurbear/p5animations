@@ -48,6 +48,11 @@ body {
 	font-family: 'Inter Tight', sans-serif;
 }
 
+h1 {
+  color: blue;
+  text-shadow:1px 1px 10px #5cfff1, 1px 1px 10px #ccc;
+  text-align:center;
+}
 
 
 /* Tile layouts: https://mastery.games/post/tile-layouts/ */
@@ -89,11 +94,6 @@ body {
   border-radius: 20px;
   
 }
-
-.swatch .link  {
-  
-}
-
 
 .swatch .title {
 	text-align: center;
