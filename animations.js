@@ -9,8 +9,7 @@ const SWATCH_SIZE = 300;
 //
 
 let animations = [
-  
-    //================================================
+  //================================================
   // TODO: Copy and paste this example to make your own animations
 
   {
@@ -18,35 +17,52 @@ let animations = [
     description: "a red dot moving <p>another paragraph</p>",
     isActive: true, // Set this to "true" to show this animation
 
-    setup(p) {
+    setup(p) {},
 
+    draw(p, t) {
+      p.fill(102);
+      p.stroke(255);
+      p.strokeWeight(2);
+      p.beginShape();
+      p.vertex(0, -50);
+      p.vertex(14, -20);
+      vertex(47, -15);
+      vertex(23, 7);
+      vertex(29, 40);
+      vertex(0, 25);
+      vertex(-29, 40);
+      vertex(-23, 7);
+      vertex(-47, -15);
+      vertex(-14, -20);
+      endShape(CLOSE);
     },
+
     draw(p, t) {
       // Draw something here!
-      p.background(210, 80, 80, .02)
-      
-      let sunHue = 50
+      p.background(210, 80, 80, 0.02);
+
+      let sunHue = 50;
       // Set the color!
-      p.fill(sunHue, 100, 50)
-      p.stroke(sunHue, 100, 90)
-      
-      p.push()
-      p.translate(80, 30)
-      p.circle(0, 0, 60)
-      p.fill(sunHue, 100, 80)
-      p.circle(0, 0, 30)
-      
-      let count = 100
-      let theta = Math.PI*2/count
+      p.fill(sunHue, 100, 50);
+      p.stroke(sunHue, 100, 90);
+
+      p.push();
+      p.translate(80, 30);
+      p.square(0, 0, 100);
+      p.fill(sunHue, 100, 80);
+      p.circle(0, 0, 30);
+
+      let count = 100;
+      let theta = (Math.PI * 2) / count;
       for (var i = 0; i < count; i++) {
-        p.rotate(theta)
-        let lineLength = 200*p.noise(i*.1, t*3)
-        p.line(0, 0, lineLength, 0)
+        p.rotate(theta);
+        let lineLength = 200 * p.noise(i * 0.1, t * 3);
+        p.line(0, 0, lineLength, 0);
       }
-      p.pop()
+      p.pop();
     },
   },
-  
+
   //================================================
   // TODO: Copy and paste this example to make your own animations
 
@@ -91,7 +107,7 @@ let animations = [
 
     draw(p, t) {
       // p.background(0, 0, 0);
-      
+
       // Fun trick: make a semi-transparent background (opacity .02)
       //  in order to have the older parts of the drawing "fade away"
       // p.background(0, 0, 0, .02)
@@ -137,7 +153,7 @@ let animations = [
     },
 
     draw(p, t) {
-      p.background(0, 0, 0, .1);
+      p.background(0, 0, 0, 0.1);
       // The center of the swatch is at (p.width/2, p.height/2)
       // let x = p.width * (0.5 + 0.5 * Math.sin(t));
       // // let y = p.height * 0.5;
@@ -146,9 +162,9 @@ let animations = [
 
       // Perlin noise
       // A way to get smooth motion, but not predictable
-      let x = p.width * p.noise(t)
-      let y = p.height * p.noise(t + 100)
-      let r = 100
+      let x = p.width * p.noise(t);
+      let y = p.height * p.noise(t + 100);
+      let r = 100;
 
       p.fill(100);
       p.circle(x, y, r);
