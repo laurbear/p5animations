@@ -18,18 +18,18 @@ html,body {
 body {
 	display: flex;
 	flex-direction: column;
-	overflow: hidden;
+/* 	overflow: hidden; */
 
 }
 
 header {
 	/* Make a top bar with a drop shadow, with horizontally-arranged items */
-	padding: 5px;
+	padding: 24px;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 	background-color: white;
-	box-shadow: 1px 2px 4px rgba(0, 0, 0, .3);
+	box-shadow: 1px 2px 4px rgba(0, 0, 0, .1);
 }
 
 h1, h2, h3 {
@@ -41,6 +41,7 @@ h1, h2, h3 {
 a {
 	margin: 0px;
 	font-family: 'Inter Tight', sans-serif;
+  color: blue;
 }
 
 body {
@@ -50,7 +51,7 @@ body {
 
 h1 {
   color: blue;
-  text-shadow:1px 1px 10px #5cfff1, 1px 1px 10px #ccc;
+  text-shadow:1px 1px 10px #5cfff1, 1px 1px 10px #cccccc;
   text-align:center;
 }
 
