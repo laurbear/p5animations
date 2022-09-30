@@ -67,7 +67,7 @@ let animations = [
     title: "Shape and Color!!!",
     description:
       "Basic drawing and randomness. See how using the full spectrum, a partial spectrum, or two different spectrums, or driving it based on time, can affect how the art looks",
-    isActive: false,
+    isActive: true,
 
     /**
      * TODO: Read this!
@@ -129,7 +129,7 @@ let animations = [
     title: "Movement",
     description:
       "How can you control movement? We can time to drive the animation, using functions like the sine wave and perlin noise",
-    isActive: false,
+    isActive: true,
 
     setup(p) {
       // Draw this once at the beginning
@@ -162,7 +162,7 @@ let animations = [
     title: "polar coordinates",
     description:
       "By using polar coordinates, you can get interesting radial patterns. Look at the difference between sine, noise, and constant radiuses",
-    isActive: false,
+    isActive: true,
 
     setup(p) {
       p.background(0, 0, 0, 0);
@@ -198,7 +198,7 @@ let animations = [
   {
     title: "For-loops",
     description: "Use a loop to create <i>many</i> of something",
-    isActive: false,
+    isActive: true,
 
     setup(p) {
       this.loopTime = 5;
@@ -252,7 +252,7 @@ let animations = [
     title: "Transformation",
     description:
       "Push/pop transformations let you rotate, scale, and more! Watch the <a href='https://www.youtube.com/watch?v=o9sgjuh-CBM'>Coding Train explanation</a> for more",
-    isActive: false,
+    isActive: true,
 
     setup(p) {
       this.loopTime = 5;
@@ -317,7 +317,7 @@ let animations = [
     title: "Functions to reuse code",
     description:
       "If you put your code in a function, you can call it many times. This works great if you use transformations to move or resize before calling the function",
-    isActive: false,
+    isActive: true,
 
     setup(p) {
       //       A function to draw a flower, of some hue and petal count
@@ -411,7 +411,7 @@ let animations = [
   {
     title: "Emoji!",
     description: "Text is an easy way to make images",
-    isActive: false,
+    isActive: true,
 
     setup(p) {
       p.background(70);

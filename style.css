@@ -62,7 +62,7 @@ h1 {
 	
 	display: grid;
 	grid-template-columns: repeat(auto-fill, 400px);
-	grid-gap: 10px;
+	grid-gap: 20px;
 	justify-content: center;
 	/*display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
@@ -81,6 +81,11 @@ h1 {
 	box-shadow: 1px 10px 14px rgba(0, 0, 0, .3);
 	display: inline-flex;
 	flex-direction: column;
+  
+/*   glowing border */
+  border: 2px solid blue;
+  box-shadow: 1px 3px 60px #CBED47;
+  border-radius: 20px;
 }
 
 .swatch canvas {
@@ -88,13 +93,6 @@ h1 {
 	border:  2px solid rgba(0, 0, 0, .2);
 }
 
-.swatch {
-  border: 2px solid blue;
-  box-shadow: 1px 3px 120px #CBED47;
-  border-radius: 20px;
-  
-}
-
 .swatch .title {
 	text-align: center;
-  
+}
