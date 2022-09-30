@@ -20,24 +20,6 @@ let animations = [
     setup(p) {},
 
     draw(p, t) {
-      p.fill(102);
-      p.stroke(255);
-      p.strokeWeight(2);
-      p.beginShape();
-      p.vertex(0, -50);
-      p.vertex(14, -20);
-      vertex(47, -15);
-      vertex(23, 7);
-      vertex(29, 40);
-      vertex(0, 25);
-      vertex(-29, 40);
-      vertex(-23, 7);
-      vertex(-47, -15);
-      vertex(-14, -20);
-      endShape(CLOSE);
-    },
-
-    draw(p, t) {
       // Draw something here!
       p.background(210, 80, 80, 0.02);
 
@@ -48,15 +30,15 @@ let animations = [
 
       p.push();
       p.translate(80, 30);
-      p.square(0, 0, 100);
-      p.fill(sunHue, 100, 80);
-      p.circle(0, 0, 30);
+      p.circle(0, 0, 100);
+      p.fill(sunHue, 100, 60);
+      p.circle(0, 0, 90);
 
       let count = 100;
       let theta = (Math.PI * 2) / count;
       for (var i = 0; i < count; i++) {
         p.rotate(theta);
-        let lineLength = 200 * p.noise(i * 0.1, t * 3);
+        let lineLength = 300 * p.noise(i * 0.1, t * 8);
         p.line(0, 0, lineLength, 0);
       }
       p.pop();
