@@ -177,19 +177,20 @@ let animations = [
   // An example
 
   {
-    title: "polar coordinates",
+    title: "bouncy googly eyes",
     description:
       "By using polar coordinates, you can get interesting radial patterns. Look at the difference between sine, noise, and constant radiuses",
     isActive: true,
 
     setup(p) {
-      p.background(255, 255, 255, 255);
+      //p.background(255, 255, 255, 255);
+      p.background(194, 255, 61);
 
       // You can also store information on the swatch
       this.theta = 0;
     },
     draw(p, t) {
-      p.background(255, 255, 255, 255);
+      p.background(194, 255, 61);
       this.theta += 0.04;
 
       let centerX = p.width / 2;
@@ -203,22 +204,31 @@ let animations = [
       let x = radius * Math.cos(this.theta) + centerX;
       let y = radius * Math.sin(this.theta) + centerY;
       let r = 10;
-    
-      
-      // 2nd particle
+
+      // big particle
       p.noStroke();
-      p.fill(200, 200, 30);
+      //p.fill(200, 200, 30);
+      p.fill(255, 255, 255);
       p.circle(x, y + 20 * Math.cos(this.theta), r + 60);
-      
+
       //  particle
       p.noStroke();
-      p.fill(180, 220, 30);
+      //p.fill(180, 220, 30);
+      p.fill(0);
       p.circle(x, y, r + 20);
-      
+
+      // big particle
+      p.noStroke();
+      //p.fill(200, 200, 30);
+      p.fill(255, 255, 255);
+
+      p.circle(x + 50, y * Math.sin(this.theta) + 40, r + 60);
+
       //  particle
       p.noStroke();
-      p.fill(180, 220, 30);
-      p.circle(x + 20, y * Math.sin(this.theta), r + 20);
+      //p.fill(180, 220, 30);
+      p.fill(0);
+      p.circle(x + 50, y * Math.sin(this.theta) + 40, r + 20);
     },
   },
 
@@ -252,11 +262,13 @@ let animations = [
 
         // Reusing the hue allows us to make a dropshadow
         //  and a highlight in the same color family
+        p.push();
 
         // Dropshadow
         p.fill(hue, 100, 20);
         p.noStroke();
         p.ellipse(x, y + tileSize / 2, tileSize, tileSize * 0.5);
+        p.scale(1, Math.sin(p.pctTheta) * 0.2 + 1);
 
         // Main circle
         p.fill(hue, 100, 40);
@@ -271,6 +283,10 @@ let animations = [
         p.fill(hue, 100, 80);
         p.noStroke();
         p.circle(x - tileSize * 0.1, y - tileSize * 0.1, tileSize * 0.5);
+
+
+
+        p.pop();
       }
     },
   },
@@ -516,6 +532,81 @@ let animations = [
       let r = 10;
       p.fill(0);
       p.circle(x, y, r);
+    },
+  },
+
+  {
+    title: "In class looping",
+    description: "Examples of some looping",
+    isActive: true, // Set this to "true" to show this animation
+
+    setup(p) {
+      this.loopTime = 2;
+    },
+    draw(p, t) {
+      p.noStroke();
+      p.background(100);
+      // Remember how I said % (modulo) was good for looping?
+      // This turns t, a value that goes up indefinitely
+      // into pct, a value that loops from 0 to 1
+      let pct = (t % this.loopTime) / this.loopTime;
+      //       This one is in radians, for things that go around a circle
+      let pctTheta = Math.PI * 2 * pct;
+
+      p.fill(0);
+      p.text(pct.toFixed(2), 10, 40);
+
+      // Replacement looping
+      // This circle "becomes" the background
+      let radius = pct * 500;
+      p.fill(0, 0, pct * 100);
+      p.circle(p.width / 2, p.height / 2, radius);
+
+      // Invisible-to-invisible looping
+      // You can use offsets in any cos/sin behavior to change timing
+      let opacity = Math.cos(pctTheta) * 0.5 + 0.5;
+      p.fill(0);
+      p.fill(10, 100, 50, opacity);
+      p.rect(0, 0, 40, 40);
+
+      let opacity2 = Math.cos(pctTheta + Math.PI) * 0.5 + 0.5;
+      p.fill(40, 100, 50, opacity2);
+      p.rect(40, 0, 40, 40);
+
+      // Draw multiple circles in multiple locations
+      let x = pct * p.width;
+      // x = 50
+      let hue = pct * 360;
+      p.fill(hue, 100, 50);
+
+      p.push();
+      p.scale(1, Math.sin(pctTheta) * 0.2 + 1);
+      p.circle(x, 100, 100);
+      p.circle(x + p.width, 100, 100);
+      p.circle(x - p.width, 100, 100);
+      p.pop();
+
+      // Rotating - easy mode looping
+      p.push();
+      p.translate(p.width / 2, p.height / 2);
+
+      // What is the rotation ALL THE WAY aroudn the circle
+      let theta = p.map(pct, 0, 1, 0, Math.PI * 2);
+      // p.rotate(theta);
+      // everythign in here make a full circle
+      //       Rotating rectangle
+      //       p.push()
+      //       let count = 19
+
+      //       for (var i = 0; i < count; i++) {
+      //        let x = 100*p.noise(i + 10)
+      //        let y = 100*p.noise(i)
+      //         let w = 10;
+      //         p.rect(x + -w / 2, y+  -w / 2, w, w);
+      //       }
+      //       p.pop()
+
+      p.pop();
     },
   },
 ];
