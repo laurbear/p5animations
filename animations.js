@@ -262,18 +262,18 @@ let animations = [
 
         // Reusing the hue allows us to make a dropshadow
         //  and a highlight in the same color family
-        p.push();
 
         // Dropshadow
         p.fill(hue, 100, 20);
         p.noStroke();
         p.ellipse(x, y + tileSize / 2, tileSize, tileSize * 0.5);
-        p.scale(1, Math.sin(p.pctTheta) * 0.2 + 1);
+
 
         // Main circle
         p.fill(hue, 100, 40);
         p.stroke(hue, 100, 20);
         p.circle(x, y, tileSize);
+
 
         // Highlight
         p.fill(hue, 100, 60);
@@ -285,8 +285,6 @@ let animations = [
         p.circle(x - tileSize * 0.1, y - tileSize * 0.1, tileSize * 0.5);
 
 
-
-        p.pop();
       }
     },
   },
