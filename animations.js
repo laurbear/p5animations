@@ -63,8 +63,7 @@ let animations = [
   // An example
   {
     title: "Cool Toned Confetti",
-    description:
-      "Using shape, color, and randomness",
+    description: "Using shape, color, and randomness",
     isActive: true,
 
     /**
@@ -92,7 +91,7 @@ let animations = [
 
       // Fun trick: make a semi-transparent background (opacity .02)
       //  in order to have the older parts of the drawing "fade away"
-      p.background(255, 255, 200, .012)
+      p.background(255, 255, 200, 0.012);
 
       // Any color in the rainbow
       let hue = Math.random() * (200 - 255) + 260;
@@ -115,7 +114,7 @@ let animations = [
 
       let r = Math.random() * 10 + 30;
       let x = Math.random() * p.width; //p.width * p.noise(t);
-      let y = p.height * p.noise(t + 200) //Math.random() * p.height;
+      let y = p.height * p.noise(t + 200); //Math.random() * p.height;
       p.circle(x, y, r);
     },
   },
@@ -131,11 +130,27 @@ let animations = [
 
     setup(p) {
       // Draw this once at the beginning
-      p.background(0, 0, 0);
+      p.background(255, 255, 255);
+
+      function star(x, y, radius1, radius2, npoints) {
+        let angle = p.TWO_PI / npoints;
+        let halfAngle = angle / 2.0;
+        p.beginShape();
+        for (let a = 0; a < p.TWO_PI; a += angle) {
+          let sx = x + p.cos(a) * radius2;
+          let sy = y + p.sin(a) * radius2;
+          p.vertex(sx, sy);
+          sx = x + p.cos(a + halfAngle) * radius1;
+          sy = y + p.sin(a + halfAngle) * radius1;
+          p.vertex(sx, sy);
+        }
+        p.endShape(p.CLOSE);
+      }
     },
 
     draw(p, t) {
-      p.background(0, 0, 0, 0.1);
+      p.background(255, 255, 255, 0.1);
+      p.star(0, 0, 30, 70, 5);
       // The center of the swatch is at (p.width/2, p.height/2)
       // let x = p.width * (0.5 + 0.5 * Math.sin(t));
       // // let y = p.height * 0.5;
@@ -150,6 +165,7 @@ let animations = [
 
       p.fill(100);
       p.circle(x, y, r);
+      p.rotate(100 / 200.0);
     },
   },
 
