@@ -62,9 +62,9 @@ let animations = [
   //================================================
   // An example
   {
-    title: "Shape and Color!!!",
+    title: "Cool Toned Confetti",
     description:
-      "Basic drawing and randomness. See how using the full spectrum, a partial spectrum, or two different spectrums, or driving it based on time, can affect how the art looks",
+      "Using shape, color, and randomness",
     isActive: true,
 
     /**
@@ -113,9 +113,9 @@ let animations = [
       p.noStroke();
       p.fill(hue % 360, sat, brightness, opacity);
 
-      let r = Math.random() * 10 + 80;
-      let x = p.width * p.noise(t);//Math.random() * p.width;
-      let y = p.height * p.noise(t + 200);//Math.random() * p.height;
+      let r = Math.random() * 10 + 30;
+      let x = Math.random() * p.width; //p.width * p.noise(t);
+      let y = p.height * p.noise(t + 200) //Math.random() * p.height;
       p.circle(x, y, r);
     },
   },
