@@ -150,7 +150,11 @@ let animations = [
 
     draw(p, t) {
       p.background(255, 255, 255, 0.1);
+      p.push();
+      p.translate(p.width * 0.8, p.height * 0.5);
+      p.rotate(p.frameCount / -100.0);
       p.star(0, 0, 30, 70, 5);
+      p.pop();
       // The center of the swatch is at (p.width/2, p.height/2)
       // let x = p.width * (0.5 + 0.5 * Math.sin(t));
       // // let y = p.height * 0.5;
@@ -179,13 +183,13 @@ let animations = [
     isActive: true,
 
     setup(p) {
-      p.background(0, 0, 0, 0);
+      p.background(255, 255, 255, 255);
 
       // You can also store information on the swatch
       this.theta = 0;
     },
     draw(p, t) {
-      p.background(0, 0, 0, 0.02);
+      p.background(255, 255, 255, 255);
       this.theta += 0.04;
 
       let centerX = p.width / 2;
@@ -199,10 +203,22 @@ let animations = [
       let x = radius * Math.cos(this.theta) + centerX;
       let y = radius * Math.sin(this.theta) + centerY;
       let r = 10;
-
+    
+      
+      // 2nd particle
       p.noStroke();
-      p.fill(100);
-      p.circle(x, y, r);
+      p.fill(200, 200, 30);
+      p.circle(x, y + 20 * Math.cos(this.theta), r + 60);
+      
+      //  particle
+      p.noStroke();
+      p.fill(180, 220, 30);
+      p.circle(x, y, r + 20);
+      
+      //  particle
+      p.noStroke();
+      p.fill(180, 220, 30);
+      p.circle(x + 20, y * Math.sin(this.theta), r + 20);
     },
   },
 
