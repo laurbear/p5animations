@@ -131,7 +131,10 @@ let animations = [
     setup(p) {
       // Draw this once at the beginning
       p.background(255, 255, 255);
+    },
 
+    draw(p, t) {
+      // draw a star func
       function star(x, y, radius1, radius2, npoints) {
         let angle = p.TWO_PI / npoints;
         let halfAngle = angle / 2.0;
@@ -146,14 +149,14 @@ let animations = [
         }
         p.endShape(p.CLOSE);
       }
-    },
 
-    draw(p, t) {
       p.background(255, 255, 255, 0.1);
       p.push();
       p.translate(p.width * 0.8, p.height * 0.5);
       p.rotate(p.frameCount / -100.0);
-      p.star(0, 0, 30, 70, 5);
+      //p.star(0, 0, 30, 70, 5);
+      p.circle(100, 100, 30);
+      star(0, 100, 30, 70, 5);
       p.pop();
       // The center of the swatch is at (p.width/2, p.height/2)
       // let x = p.width * (0.5 + 0.5 * Math.sin(t));
@@ -268,12 +271,10 @@ let animations = [
         p.noStroke();
         p.ellipse(x, y + tileSize / 2, tileSize, tileSize * 0.5);
 
-
         // Main circle
         p.fill(hue, 100, 40);
         p.stroke(hue, 100, 20);
         p.circle(x, y, tileSize);
-
 
         // Highlight
         p.fill(hue, 100, 60);
@@ -283,8 +284,6 @@ let animations = [
         p.fill(hue, 100, 80);
         p.noStroke();
         p.circle(x - tileSize * 0.1, y - tileSize * 0.1, tileSize * 0.5);
-
-
       }
     },
   },
