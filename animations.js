@@ -84,7 +84,7 @@ let animations = [
      */
 
     setup(p) {
-      p.background(0, 0, 0);
+      p.background(255, 255, 255);
     },
 
     draw(p, t) {
@@ -92,10 +92,10 @@ let animations = [
 
       // Fun trick: make a semi-transparent background (opacity .02)
       //  in order to have the older parts of the drawing "fade away"
-      // p.background(0, 0, 0, .02)
+      p.background(255, 255, 200, .012)
 
       // Any color in the rainbow
-      let hue = Math.random() * 360;
+      let hue = Math.random() * (200 - 255) + 260;
 
       // Use this line instead for just blue circles
       // let hue = Math.random()*50 + 150
@@ -113,9 +113,9 @@ let animations = [
       p.noStroke();
       p.fill(hue % 360, sat, brightness, opacity);
 
-      let r = Math.random() * 10 + 10;
-      let x = Math.random() * p.width;
-      let y = Math.random() * p.height;
+      let r = Math.random() * 10 + 80;
+      let x = p.width * p.noise(t);//Math.random() * p.width;
+      let y = p.height * p.noise(t + 200);//Math.random() * p.height;
       p.circle(x, y, r);
     },
   },
