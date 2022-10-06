@@ -12,57 +12,13 @@ let animations = [
   //================================================
   // TODO: Copy and paste this example to make your own animations
 
-  {
-    title: "Ktes in class animation",
-    description: "a red dot moving <p>another paragraph</p>",
-    isActive: false, // Set this to "true" to show this animation
-
-    setup(p) {},
-
-    draw(p, t) {
-      // Draw something here!
-      p.background(210, 80, 80, 0.02);
-
-      let sunHue = 50;
-      // Set the color!
-      p.fill(sunHue, 100, 50);
-      p.stroke(sunHue, 100, 90);
-
-      p.push();
-      p.translate(80, 30);
-      p.circle(0, 0, 100);
-      p.fill(sunHue, 100, 60);
-      p.circle(0, 0, 90);
-
-      let count = 100;
-      let theta = (Math.PI * 2) / count;
-      for (var i = 0; i < count; i++) {
-        p.rotate(theta);
-        let lineLength = 300 * p.noise(i * 0.1, t * 8);
-        p.line(0, 0, lineLength, 0);
-      }
-      p.pop();
-    },
-  },
-
   //================================================
   // TODO: Copy and paste this example to make your own animations
-
-  {
-    title: "Your animation here",
-    description: "a red dot moving <p>another paragraph</p>",
-    isActive: false, // Set this to "true" to show this animation
-
-    setup(p) {},
-    draw(p, t) {
-      // Draw something here!
-    },
-  },
 
   //================================================
   // An example
   {
-    title: "cool toned confetti art",
+    title: "weaving glitch",
     description: "using shape, color, and randomness",
     isActive: true,
 
@@ -86,8 +42,95 @@ let animations = [
       p.background(255, 255, 255);
     },
 
-    draw(p, t) {
-      // p.background(0, 0, 0);
+    draw(p, t) {      
+      
+       function star(x, y, radius1, radius2, npoints) {
+        let angle = p.TWO_PI / npoints;
+        let halfAngle = angle / 2.0;
+        p.beginShape();
+        for (let a = 0; a < p.TWO_PI; a += angle) {
+          let sx = x + p.cos(a) * radius2;
+          let sy = y + p.sin(a) * radius2;
+          p.vertex(sx, sy);
+          sx = x + p.cos(a + halfAngle) * radius1;
+          sy = y + p.sin(a + halfAngle) * radius1;
+          p.vertex(sx, sy);
+        }
+        p.endShape(p.CLOSE);
+      }
+
+      // Fun trick: make a semi-transparent background (opacity .02)
+      //  in order to have the older parts of the drawing "fade away"
+      p.background(255, 255, 255, 0.012);
+
+      // Any color in the rainbow
+      let hue = Math.random() * (200 - 255) + 260;
+
+      // Use this line instead for just blue circles
+      // let hue = Math.random()*50 + 150
+
+      // Ternary operator: there's a 30% chance of orange, 70% chance of green
+      // let hue = (Math.random()<.3?20:170) + 30*Math.random()
+
+      // Use the time
+      // let hue = t*100
+
+      let sat = 120;
+      let brightness = 80;
+      let opacity = Math.random();
+
+      p.noStroke();
+      p.fill(hue % 360, sat, brightness, opacity);
+
+      let r = Math.random() * 10 + 30;
+      let x = Math.random() * p.width; //p.width * p.noise(t);
+      let y = p.height * p.noise(t + 200); //Math.random() * p.height;
+      //p.circle(x, y, r);
+      star(x + 20, y, 10, 40 * r, 4);
+    },
+  },
+  
+   {
+    title: "sparkle confetti art",
+    description: "using shape, color, and randomness",
+    isActive: true,
+
+    /**
+     * TODO: Read this!
+     * Setup and draw both have a "p" parameter
+     * This is the P5 object.
+     *
+     * All of the built-in drawing tools from P5
+     *  are methods on this object
+     *
+     * If you use any P5 tutorials, usually you will have to
+     *  add "p." in front of their commands
+     * e.g.  "rect(0,0,100,300)" => "p.rect(0,0,100,300)"
+     *
+     * "t" is the seconds that this app has been open
+     * You can use that do drive location color, etc
+     */
+
+    setup(p) {
+      p.background(255, 255, 255);
+    },
+
+    draw(p, t) {      
+      
+       function star(x, y, radius1, radius2, npoints) {
+        let angle = p.TWO_PI / npoints;
+        let halfAngle = angle / 2.0;
+        p.beginShape();
+        for (let a = 0; a < p.TWO_PI; a += angle) {
+          let sx = x + p.cos(a) * radius2;
+          let sy = y + p.sin(a) * radius2;
+          p.vertex(sx, sy);
+          sx = x + p.cos(a + halfAngle) * radius1;
+          sy = y + p.sin(a + halfAngle) * radius1;
+          p.vertex(sx, sy);
+        }
+        p.endShape(p.CLOSE);
+      }
 
       // Fun trick: make a semi-transparent background (opacity .02)
       //  in order to have the older parts of the drawing "fade away"
@@ -105,8 +148,8 @@ let animations = [
       // Use the time
       // let hue = t*100
 
-      let sat = 100;
-      let brightness = 50;
+      let sat = 120;
+      let brightness = 80;
       let opacity = Math.random();
 
       p.noStroke();
@@ -115,7 +158,8 @@ let animations = [
       let r = Math.random() * 10 + 30;
       let x = Math.random() * p.width; //p.width * p.noise(t);
       let y = p.height * p.noise(t + 200); //Math.random() * p.height;
-      p.circle(x, y, r);
+      //p.circle(x, y, r);
+      star(x + 20, y, 10, 40, 4);
     },
   },
 
@@ -537,8 +581,8 @@ let animations = [
   },
 
   {
-    title: "In class looping",
-    description: "Examples of some looping",
+    title: "infinite matcha",
+    description: "example of looping",
     isActive: true, // Set this to "true" to show this animation
 
     setup(p) {
@@ -601,7 +645,7 @@ let animations = [
       p.translate(x1, y);
       p.scale(1, Math.sin(pctTheta) * 0.2 + 1);
       p.textSize(56);
-      p.text("🌱", -130, 130);
+      p.text("🌱", -130, 120);
       p.pop();
     },
   },
@@ -626,6 +670,38 @@ let animations = [
 
       p.rotate(p.theta);
       p.text("Emoji! 💜", 0, 0);
+      p.pop();
+    },
+  },
+   {
+    title: "Ktes in class animation",
+    description: "a red dot moving <p>another paragraph</p>",
+    isActive: false, // Set this to "true" to show this animation
+
+    setup(p) {},
+
+    draw(p, t) {
+      // Draw something here!
+      p.background(210, 80, 80, 0.02);
+
+      let sunHue = 50;
+      // Set the color!
+      p.fill(sunHue, 100, 50);
+      p.stroke(sunHue, 100, 90);
+
+      p.push();
+      p.translate(80, 30);
+      p.circle(0, 0, 100);
+      p.fill(sunHue, 100, 60);
+      p.circle(0, 0, 90);
+
+      let count = 100;
+      let theta = (Math.PI * 2) / count;
+      for (var i = 0; i < count; i++) {
+        p.rotate(theta);
+        let lineLength = 300 * p.noise(i * 0.1, t * 8);
+        p.line(0, 0, lineLength, 0);
+      }
       p.pop();
     },
   },
