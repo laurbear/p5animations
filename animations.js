@@ -15,7 +15,7 @@ let animations = [
   {
     title: "Ktes in class animation",
     description: "a red dot moving <p>another paragraph</p>",
-    isActive: true, // Set this to "true" to show this animation
+    isActive: false, // Set this to "true" to show this animation
 
     setup(p) {},
 
@@ -123,9 +123,9 @@ let animations = [
   // An example
 
   {
-    title: "Movement",
+    title: "trailing stars",
     description:
-      "How can you control movement? We can time to drive the animation, using functions like the sine wave and perlin noise",
+      "movement, shapes, perlin noise",
     isActive: true,
 
     setup(p) {
@@ -153,13 +153,13 @@ let animations = [
       p.background(255, 255, 255, 0.1);
       p.push();
       p.translate(p.width * 0.8, p.height * 0.5);
-      p.rotate(p.frameCount / -100.0);
+      p.rotate(p.frameCount / -50.0);
       p.stroke(100, 200, 80);
       p.circle(100, 100, 30);
       p.fill(100, 200, 80);
-      star(0, 100, 30, 70, 5);
+      star(-100, 100, 30, 70, 5);
       star(100, 100, 30, 70, 5);
-      star(200, 100, 30, 70, 5);
+      star(200, 5, 30, 70, 5);
       p.pop();
       // The center of the swatch is at (p.width/2, p.height/2)
       // let x = p.width * (0.5 + 0.5 * Math.sin(t));
@@ -175,8 +175,7 @@ let animations = [
 
       p.fill(100, 200, 80);
       p.stroke(100, 200, 80);
-      star(20+x, 100+(y*1.2), 30, 70, 5);
-      star(200+(x*1.2), 100+(y*2.2), 80, 70, 9);
+      star(110+x, 110+(y*0.2), 30, 70, 5);
       //p.circle(x, y, r);
       p.rotate(100 / 200.0);
     },
@@ -188,7 +187,7 @@ let animations = [
   {
     title: "bouncy googly eyes",
     description:
-      "By using polar coordinates, you can get interesting radial patterns. Look at the difference between sine, noise, and constant radiuses",
+      "using cosine and sine for fun motion",
     isActive: true,
 
     setup(p) {
@@ -224,13 +223,12 @@ let animations = [
       p.noStroke();
       //p.fill(180, 220, 30);
       p.fill(0);
-      p.circle(x, y, r + 20);
+      p.circle(x, y + 20 * Math.cos(this.theta), r + 20);
 
       // big particle
       p.noStroke();
       //p.fill(200, 200, 30);
       p.fill(255, 255, 255);
-
       p.circle(x + 50, y * Math.sin(this.theta) + 40, r + 60);
 
       //  particle
@@ -247,7 +245,7 @@ let animations = [
   {
     title: "For-loops",
     description: "Use a loop to create <i>many</i> of something",
-    isActive: true,
+    isActive: false,
 
     setup(p) {
       this.loopTime = 5;
