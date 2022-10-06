@@ -456,7 +456,7 @@ let animations = [
   // Make lots of emoji
 
   {
-    title: "waves",
+    title: "waves of waves",
     description: "waves of emoji + text",
     isActive: true,
 
