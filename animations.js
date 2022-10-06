@@ -559,13 +559,10 @@ let animations = [
       p.fill(0, 0, pct * 100);
       p.circle(p.width / 2, p.height / 2, radius);
 
+      p.push();
       p.fill(200, 100, pct * 100);
       p.circle(p.width / 2, p.height / 2, radius / 2);
-      
-      p.push();
-      p.fill(100, 0, pct * 100);
-      p.circle(p.width / 4, p.height / 4);
-      p.scale(4)
+      p.scale(-2);
       p.pop();
 
       // Invisible-to-invisible looping
@@ -583,15 +580,25 @@ let animations = [
       let x = pct * p.width;
       // x = 50
       let hue = pct * 360;
+      p.textSize(100);
+      p.text("🌱", 100, 100);
       p.fill(hue, 100, 50);
+      p.text("🍵", p.width / 2, p.height / 2);
 
       p.push();
-      //Math.sin(pctTheta) * 0.2 + 1
-      p.scale(Math.cos(pctTheta) * 0.2 + 1, 1);
-      //p.circle(x, 100, 100);
-      //p.text('🧠', p.width/2, p.height/2)
-      //p.circle(x + p.width, 200, 100);
-      //p.circle(x - p.width, 100, 100);
+      // //Math.sin(pctTheta) * 0.2 + 1
+      // p.scale(Math.cos(pctTheta) * 0.2 + 1, 1);
+      // p.circle(x, 100, 100);
+      // //p.text('🧠', p.width/2, p.height/2)
+      // //p.circle(x + p.width, 200, 100);
+      // //p.circle(x - p.width, 100, 100);
+
+      p.scale(1, Math.sin(pctTheta) * 0.2 + 1);
+      p.circle(x, 100, 100);
+      // p.text('🍵', 100, 100);
+      p.circle(x + p.width, 100, 100);
+      p.circle(x - p.width, 100, 100);
+
       p.pop();
 
       // Rotating - easy mode looping
