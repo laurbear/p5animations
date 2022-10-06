@@ -606,4 +606,29 @@ let animations = [
       p.pop();
     },
   },
+  {
+    title: "Blank",
+    description: "a red dot moving <p>another paragraph</p>",
+    isActive: true, // Set this to "true" to show this animation
+
+    setup(p) {},
+    draw(p, t) {
+      p.push();
+      p.circle(-100, 0, 40);
+      p.pop();
+      
+      p.background(100);
+      p.fill(0, 100, 50);
+      let x = (t * 100) % p.width;
+      let y = 50;
+      p.circle(x, y, 40);
+
+      p.push();
+      p.translate(x, y);
+
+      p.rotate(p.theta);
+      p.text("Emoji! 💜", 0, 0);
+      p.pop();
+    },
+  },
 ];
