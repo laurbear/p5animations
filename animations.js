@@ -542,7 +542,7 @@ let animations = [
     isActive: true, // Set this to "true" to show this animation
 
     setup(p) {
-      this.loopTime = 3;
+      this.loopTime = 4;
     },
     draw(p, t) {
       p.noStroke();
@@ -575,29 +575,33 @@ let animations = [
 
       p.background(100);
       p.fill(0, 100, 50);
-      let x1 = (t * 100) % p.width;
+      let x1 = (t * 100) % 500;
       let y = 50;
       //p.circle(x1, y, 40);
 
       p.push();
       p.translate(x1, y);
+      // p.textSize(56);
+      // p.scale(1, Math.sin(pctTheta) * 0.2 + 1);
+      // p.text("🌱", 20, 145);
       p.textSize(100);
       p.rotate(p.theta);
-      p.text("🍵", 0, 200);
+      p.text("🍵", -150, 200);
       p.pop();
 
-      let x = pct * p.width;
-      // x = 50
-      let hue = pct * 360;
-      p.textSize(100);
-      //p.text("🌱", 100, 100);
-      p.fill(hue, 100, 50);
-      p.text("🍵", 100, 250);
+//       let x = pct * p.width;
+//       // x = 50
+//       let hue = pct * 360;
+//       p.textSize(100);
+//       //p.text("🌱", 100, 100);
+//       p.fill(hue, 100, 50);
+//       p.text("🍵", 100, 250);
 
       p.push();
+      p.translate(x1, y);
       p.scale(1, Math.sin(pctTheta) * 0.2 + 1);
       p.textSize(56);
-      p.text("🌱", 120, 150);
+      p.text("🌱", -130, 130);
       p.pop();
     },
   },
