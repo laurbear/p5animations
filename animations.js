@@ -576,44 +576,19 @@ let animations = [
       p.fill(40, 100, 50, opacity2);
       //p.rect(40, 0, 40, 40);
 
-      // Draw multiple circles in multiple locations
-      let count = 10;
-      let tileSize = p.width / count;
+      p.background(100);
+      p.fill(0, 100, 50);
+      let x1 = (t * 100) % p.width;
+      let y = 50;
+      //p.circle(x1, y, 40);
 
-      for (let i = 0; i < count; i++) {
-        let x = tileSize * (i + 0.5);
-        let y = p.height / 2;
+      p.push();
+      p.translate(x1, y);
+      p.textSize(40);
+      p.rotate(p.theta);
+      p.text("🍵", 0, 0);
+      p.pop();
 
-        let hue = i * 20 + t * 100;
-
-        hue %= 360; // Wrap the hue around 360 degrees, P5 can't handle >360 hues
-
-        // Reusing the hue allows us to make a dropshadow
-        //  and a highlight in the same color family
-
-        // Dropshadow
-        p.fill(hue, 100, 20);
-        p.noStroke();
-        p.ellipse(x, y + tileSize / 2, tileSize, tileSize * 0.5);
-
-        // Main circle
-        p.fill(hue, 100, 40);
-        p.stroke(hue, 100, 20);
-        p.circle(x, y, tileSize);
-
-        // Highlight
-        p.fill(hue, 100, 60);
-        p.noStroke();
-        p.circle(x - tileSize * 0.05, y - tileSize * 0.05, tileSize * 0.8);
-
-        p.fill(hue, 100, 80);
-        p.noStroke();
-        p.circle(x - tileSize * 0.1, y - tileSize * 0.1, tileSize * 0.5);
-      
-      
-      
-      
-      
       let x = pct * p.width;
       // x = 50
       let hue = pct * 360;
@@ -663,8 +638,6 @@ let animations = [
       //       p.pop()
 
       p.pop();
-
-      
     },
   },
   {
