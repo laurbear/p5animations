@@ -577,9 +577,12 @@ let animations = [
       p.fill(hue, 100, 50);
 
       p.push();
-      p.scale(1, Math.sin(pctTheta) * 0.2 + 1);
+      p.scale(Math.sin(pctTheta) * 0.2 + 1, 1);
       p.circle(x, 100, 100);
-      p.circle(x + p.width, 100, 100);
+      p.text('🧠', 100, 100)
+      p.circle(x, 300, 100);
+      p.text('heyyy')
+      p.circle(x + p.width, 200, 100);
       p.circle(x - p.width, 100, 100);
       p.pop();
 
@@ -613,10 +616,9 @@ let animations = [
 
     setup(p) {},
     draw(p, t) {
-      p.push();
-      p.circle(-100, 0, 40);
-      p.pop();
-      
+      //p.push();
+      //p.circle(-400, 0, 40);
+
       p.background(100);
       p.fill(0, 100, 50);
       let x = (t * 100) % p.width;
