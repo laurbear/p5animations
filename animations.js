@@ -551,24 +551,27 @@ let animations = [
       let pctTheta = Math.PI * 2 * pct;
 
       p.fill(0);
-      p.text(pct.toFixed(2), 10, 40);
+      //p.text(pct.toFixed(2), 10, 40);
 
       // Replacement looping
       // This circle "becomes" the background
       let radius = pct * 500;
-      p.fill(0, 0, pct * 100);
-      p.circle(p.width / 2, p.height / 2, radius);
+      p.fill(215, 158, pct * 100);
+      p.circle(p.width / 2, p.height / 2, radius, Math.cos(pctTheta) * 1.5 + 0.75);
+      
+      p.fill(200, 100, pct * 100, 40);
+      p.circle(p.width / 2, p.height / 2, radius/2, (Math.cos(pctTheta) * 1.5 + 0.75));
 
       // Invisible-to-invisible looping
       // You can use offsets in any cos/sin behavior to change timing
-      let opacity = Math.cos(pctTheta) * 0.5 + 0.5;
+      let opacity = Math.cos(pctTheta) * 1.5 + 0.75;
       p.fill(0);
-      p.fill(10, 100, 50, opacity);
-      p.rect(0, 0, 40, 40);
+      p.fill(100, 100, 50, opacity);
+      //p.rect(0, 0, 40, 40);
 
       let opacity2 = Math.cos(pctTheta + Math.PI) * 0.5 + 0.5;
       p.fill(40, 100, 50, opacity2);
-      p.rect(40, 0, 40, 40);
+      //p.rect(40, 0, 40, 40);
 
       // Draw multiple circles in multiple locations
       let x = pct * p.width;
@@ -577,13 +580,12 @@ let animations = [
       p.fill(hue, 100, 50);
 
       p.push();
-      p.scale(Math.sin(pctTheta) * 0.2 + 1, 1);
-      p.circle(x, 100, 100);
-      p.text('🧠', 100, 100)
-      p.circle(x, 300, 100);
-      p.text('heyyy')
-      p.circle(x + p.width, 200, 100);
-      p.circle(x - p.width, 100, 100);
+      //Math.sin(pctTheta) * 0.2 + 1
+      p.scale(Math.cos(pctTheta) * 0.2 + 1, 1);
+      //p.circle(x, 100, 100);
+      //p.text('🧠', p.width/2, p.height/2)
+      //p.circle(x + p.width, 200, 100);
+      //p.circle(x - p.width, 100, 100);
       p.pop();
 
       // Rotating - easy mode looping
