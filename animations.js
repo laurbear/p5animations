@@ -452,18 +452,18 @@ let animations = [
   // Make lots of emoji
 
   {
-    title: "Emoji!",
-    description: "Text is an easy way to make images",
+    title: "waves",
+    description: "waves of emoji + text",
     isActive: true,
 
     setup(p) {
-      p.background(70);
+      p.background(255);
       let emoji =
-        "🤲 👐 🙌 👏 🤝 👍 👎 👊 ✊ 🤛 🤜 🤞 ✌️ 🤟 🤘 👌 🤏 👈 👉 👆 👇 ☝️ ✋ 🤚 🖐 🖖 🤙 💪 🖕 ✍️ 🙏 💅 🤝 🤗 🙋‍♀️ 🙆‍♂️ 🤦‍♂️".split(
+        "🌊".split(
           " "
         );
       // How many tiles and how big are they?
-      let count = 20;
+      let count = 10;
       let tileSize = p.width / count;
       let noiseScale = 0.01;
 
@@ -480,23 +480,23 @@ let animations = [
     draw(p, t) {
       // Perlin noise
       // A way to get smooth motion, but not predictable
-      let x = p.width * p.noise(t * 0.2);
+      let x = p.width * p.noise(t * 0.2 + 40);
       let y = p.height * p.noise(t * 0.3 + 100);
-      let theta = 30 * p.noise(t * 0.1);
+      let theta = 30 * p.noise(t * 0.1 + 30);
 
       // Big centered text
       p.textSize(50);
       p.textAlign(p.CENTER);
 
       // White text with a black outline
-      p.fill(100);
-      p.stroke(0);
+      p.fill(200, 100, 81);
+      p.stroke(200, 100, 40);
 
       p.push();
       p.translate(x, y);
 
       p.rotate(theta);
-      p.text("Emoji! 💜", 0, 0);
+      p.text("waves 🌊", 0, 0);
       p.pop();
     },
   },
@@ -538,7 +538,7 @@ let animations = [
     isActive: true, // Set this to "true" to show this animation
 
     setup(p) {
-      this.loopTime = 2;
+      this.loopTime = 3;
     },
     draw(p, t) {
       p.noStroke();
@@ -567,14 +567,7 @@ let animations = [
 
       // Invisible-to-invisible looping
       // You can use offsets in any cos/sin behavior to change timing
-      let opacity = Math.cos(pctTheta) * 1.5 + 0.75;
-      p.fill(0);
-      p.fill(100, 100, 50, opacity);
-      //p.rect(0, 0, 40, 40);
 
-      let opacity2 = Math.cos(pctTheta + Math.PI) * 0.5 + 0.5;
-      p.fill(40, 100, 50, opacity2);
-      //p.rect(40, 0, 40, 40);
 
       p.background(100);
       p.fill(0, 100, 50);
@@ -584,9 +577,9 @@ let animations = [
 
       p.push();
       p.translate(x1, y);
-      p.textSize(40);
+      p.textSize(100);
       p.rotate(p.theta);
-      p.text("🍵", 0, 0);
+      p.text("🍵", 0, 200);
       p.pop();
 
       let x = pct * p.width;
@@ -598,52 +591,16 @@ let animations = [
       p.text("🍵", 100, 250);
 
       p.push();
-      // //Math.sin(pctTheta) * 0.2 + 1
-      // p.scale(Math.cos(pctTheta) * 0.2 + 1, 1);
-      // p.circle(x, 100, 100);
-      // //p.text('🧠', p.width/2, p.height/2)
-      // //p.circle(x + p.width, 200, 100);
-      // //p.circle(x - p.width, 100, 100);
-
       p.scale(1, Math.sin(pctTheta) * 0.2 + 1);
-      //p.circle(x, 100, 100);
       p.textSize(56);
       p.text("🌱", 120, 150);
-      // p.translate(0, 0);
-      //p.text("🍵", 100, 250);
-      // p.text('🍵', 100, 100);
-      //p.circle(x + p.width, 100, 100);
-      //p.circle(x - p.width, 100, 100);
-
-      p.pop();
-
-      // Rotating - easy mode looping
-      p.push();
-      p.translate(p.width / 2, p.height / 2);
-
-      // What is the rotation ALL THE WAY aroudn the circle
-      let theta = p.map(pct, 0, 1, 0, Math.PI * 2);
-      // p.rotate(theta);
-      // everythign in here make a full circle
-      //       Rotating rectangle
-      //       p.push()
-      //       let count = 19
-
-      //       for (var i = 0; i < count; i++) {
-      //        let x = 100*p.noise(i + 10)
-      //        let y = 100*p.noise(i)
-      //         let w = 10;
-      //         p.rect(x + -w / 2, y+  -w / 2, w, w);
-      //       }
-      //       p.pop()
-
       p.pop();
     },
   },
   {
     title: "Blank",
     description: "a red dot moving <p>another paragraph</p>",
-    isActive: true, // Set this to "true" to show this animation
+    isActive: false, // Set this to "true" to show this animation
 
     setup(p) {},
     draw(p, t) {
