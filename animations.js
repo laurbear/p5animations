@@ -556,11 +556,17 @@ let animations = [
       // Replacement looping
       // This circle "becomes" the background
       let radius = pct * 500;
-      p.fill(215, 158, pct * 100);
-      p.circle(p.width / 2, p.height / 2, radius, Math.cos(pctTheta) * 1.5 + 0.75);
+      p.fill(0, 0, pct * 100);
+      p.circle(p.width / 2, p.height / 2, radius);
+
+      p.fill(200, 100, pct * 100);
+      p.circle(p.width / 2, p.height / 2, radius / 2);
       
-      p.fill(200, 100, pct * 100, 40);
-      p.circle(p.width / 2, p.height / 2, radius/2, (Math.cos(pctTheta) * 1.5 + 0.75));
+      p.push();
+      p.fill(100, 0, pct * 100);
+      p.circle(p.width / 4, p.height / 4);
+      p.scale(4)
+      p.pop();
 
       // Invisible-to-invisible looping
       // You can use offsets in any cos/sin behavior to change timing
