@@ -223,7 +223,7 @@ let animations = [
       p.noStroke();
       //p.fill(180, 220, 30);
       p.fill(0);
-      p.circle(x, y + 20 * Math.cos(this.theta), r + 20);
+      p.circle(x, y, r + 20);
 
       // big particle
       p.noStroke();
