@@ -62,8 +62,8 @@ let animations = [
   //================================================
   // An example
   {
-    title: "Cool Toned Confetti",
-    description: "Using shape, color, and randomness",
+    title: "cool toned confetti art",
+    description: "using shape, color, and randomness",
     isActive: true,
 
     /**
@@ -149,14 +149,17 @@ let animations = [
         }
         p.endShape(p.CLOSE);
       }
-
+    
       p.background(255, 255, 255, 0.1);
       p.push();
       p.translate(p.width * 0.8, p.height * 0.5);
       p.rotate(p.frameCount / -100.0);
-      //p.star(0, 0, 30, 70, 5);
+      p.stroke(100, 200, 80);
       p.circle(100, 100, 30);
+      p.fill(100, 200, 80);
       star(0, 100, 30, 70, 5);
+      star(100, 100, 30, 70, 5);
+      star(200, 100, 30, 70, 5);
       p.pop();
       // The center of the swatch is at (p.width/2, p.height/2)
       // let x = p.width * (0.5 + 0.5 * Math.sin(t));
@@ -170,8 +173,11 @@ let animations = [
       let y = p.height * p.noise(t + 100);
       let r = 100;
 
-      p.fill(100);
-      p.circle(x, y, r);
+      p.fill(100, 200, 80);
+      p.stroke(100, 200, 80);
+      star(20+x, 100+(y*1.2), 30, 70, 5);
+      star(200+(x*1.2), 100+(y*2.2), 80, 70, 9);
+      //p.circle(x, y, r);
       p.rotate(100 / 200.0);
     },
   },
@@ -295,7 +301,7 @@ let animations = [
     title: "Transformation",
     description:
       "Push/pop transformations let you rotate, scale, and more! Watch the <a href='https://www.youtube.com/watch?v=o9sgjuh-CBM'>Coding Train explanation</a> for more",
-    isActive: true,
+    isActive: false,
 
     setup(p) {
       this.loopTime = 5;
@@ -360,7 +366,7 @@ let animations = [
     title: "Functions to reuse code",
     description:
       "If you put your code in a function, you can call it many times. This works great if you use transformations to move or resize before calling the function",
-    isActive: true,
+    isActive: false,
 
     setup(p) {
       //       A function to draw a flower, of some hue and petal count
