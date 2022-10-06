@@ -555,15 +555,15 @@ let animations = [
 
       // Replacement looping
       // This circle "becomes" the background
-      let radius = pct * 500;
-      p.fill(0, 0, pct * 100);
-      p.circle(p.width / 2, p.height / 2, radius);
+      //       let radius = pct * 500;
+      //       p.fill(0, 0, pct * 100);
+      //       p.circle(p.width / 2, p.height / 2, radius);
 
-      p.push();
-      p.fill(200, 100, pct * 100);
-      p.circle(p.width / 2, p.height / 2, radius / 2);
-      p.scale(-2);
-      p.pop();
+      //       p.push();
+      //       p.fill(200, 100, pct * 100);
+      //       p.circle(p.width / 2, p.height / 2, radius / 2);
+      //       p.scale(-2);
+      //       p.pop();
 
       // Invisible-to-invisible looping
       // You can use offsets in any cos/sin behavior to change timing
@@ -583,7 +583,7 @@ let animations = [
       p.textSize(100);
       p.text("🌱", 100, 100);
       p.fill(hue, 100, 50);
-      p.text("🍵", p.width / 2, p.height / 2);
+      p.text("🍵", 100, 250);
 
       p.push();
       // //Math.sin(pctTheta) * 0.2 + 1
@@ -593,11 +593,15 @@ let animations = [
       // //p.circle(x + p.width, 200, 100);
       // //p.circle(x - p.width, 100, 100);
 
-      p.scale(1, Math.sin(pctTheta) * 0.2 + 1);
-      p.circle(x, 100, 100);
+      //p.scale(1, Math.sin(pctTheta) * 0.2 + 1);
+      //p.circle(x, 100, 100);
+      p.textSize(56);
+      p.text("🌱", 120, 150);
+      // p.translate(0, 0);
+      //p.text("🍵", 100, 250);
       // p.text('🍵', 100, 100);
-      p.circle(x + p.width, 100, 100);
-      p.circle(x - p.width, 100, 100);
+      //p.circle(x + p.width, 100, 100);
+      //p.circle(x - p.width, 100, 100);
 
       p.pop();
 
