@@ -64,7 +64,7 @@ let animations = [
       p.background(255, 255, 255, 0.012);
 
       // Any color in the rainbow
-      let hue = Math.random() * (200 - 255) + 260;
+      let hue = Math.random() * (200 - 12) + 260;
 
       // Use this line instead for just blue circles
       // let hue = Math.random()*50 + 150
@@ -95,21 +95,6 @@ let animations = [
     description: "using shape, color, and randomness",
     isActive: true,
 
-    /**
-     * TODO: Read this!
-     * Setup and draw both have a "p" parameter
-     * This is the P5 object.
-     *
-     * All of the built-in drawing tools from P5
-     *  are methods on this object
-     *
-     * If you use any P5 tutorials, usually you will have to
-     *  add "p." in front of their commands
-     * e.g.  "rect(0,0,100,300)" => "p.rect(0,0,100,300)"
-     *
-     * "t" is the seconds that this app has been open
-     * You can use that do drive location color, etc
-     */
 
     setup(p) {
       p.background(255, 255, 255);
@@ -156,8 +141,8 @@ let animations = [
       p.fill(hue % 360, sat, brightness, opacity);
 
       let r = Math.random() * 10 + 30;
-      let x = Math.random() * p.width; //p.width * p.noise(t);
-      let y = p.height * p.noise(t + 200); //Math.random() * p.height;
+      let x = Math.random() * (p.width * 2); //p.width * p.noise(t);
+      let y = p.height * p.noise(t * 800); //Math.random() * p.height;
       //p.circle(x, y, r);
       star(x + 20, y, 10, 40, 4);
     },
@@ -587,10 +572,11 @@ let animations = [
 
     setup(p) {
       this.loopTime = 4;
+      
     },
     draw(p, t) {
       p.noStroke();
-      p.background(100);
+      p.background(122, 45, 95);
       // Remember how I said % (modulo) was good for looping?
       // This turns t, a value that goes up indefinitely
       // into pct, a value that loops from 0 to 1
@@ -601,23 +587,8 @@ let animations = [
       p.fill(0);
       //p.text(pct.toFixed(2), 10, 40);
 
-      // Replacement looping
-      // This circle "becomes" the background
-      //       let radius = pct * 500;
-      //       p.fill(0, 0, pct * 100);
-      //       p.circle(p.width / 2, p.height / 2, radius);
 
-      //       p.push();
-      //       p.fill(200, 100, pct * 100);
-      //       p.circle(p.width / 2, p.height / 2, radius / 2);
-      //       p.scale(-2);
-      //       p.pop();
-
-      // Invisible-to-invisible looping
-      // You can use offsets in any cos/sin behavior to change timing
-
-
-      p.background(100);
+      //p.background(100);
       p.fill(0, 100, 50);
       let x1 = (t * 100) % 500;
       let y = 50;
